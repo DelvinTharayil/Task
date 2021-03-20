@@ -8,6 +8,7 @@
   --r-smallpx: calc(8px + (10 - 8) * ((100vw -  370px) / (1600 - 370)));/*10px responsive*/
 
 }
+
 html {
   scroll-behavior: smooth;
 }
