@@ -19,6 +19,28 @@ slider.addEventListener(
   }, 100)
 );
 
+
+function nextSlides() {
+  if (counter >= 2) {
+    counter = -1
+  }
+  counter++
+  moveSliders();
+  removeFillEliips();
+  addFillEllipse();
+}
+
+
+function prevSlides() {
+  if (counter <= 0) {
+    counter = 3
+  }
+  counter--
+  moveSliders();
+  removeFillEliips();
+  addFillEllipse();
+}
+
 buttons[0].classList.add("show-fill-ellipse");
 
 buttons.forEach((itm, i) => {

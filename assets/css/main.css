@@ -683,20 +683,41 @@ form .container .photograph button:last-of-type {
   width:auto;
   top:50%;
   z-index: 2;
-  /* margin: 0% 1% 0% 1%; */
   padding: var(--r-smallpx) var(--r-mediumpx);
   font-size: var(--r-largepx);
   background-color:transparent;
-  border:solid 2px rgb(47, 47, 48);
+  border:solid 2px rgb(65, 101, 210);
+  color:rgb(65, 101, 210) ;
+  transition: background 1s ease;
   border-radius: 50px;
+  user-select: none;
 }
 .navslider:hover{
-  background-color:rgb(69, 138, 203);
+  background-color:rgba(65, 101, 210, 0.7);
   color:var(--body-clr);
+  border:solid 2px transparent;
 }
 .next{
-  /* visibility: hidden; */
-  right: 13%;
+  right: 9%;
+}
+
+.prev{
+  left: 9%;
+}
+@media (max-width: 1024px) and (min-width: 768px) {
+ 
+    .next {
+      right: 3%;
+    }
+    
+    .prev {
+      left: 3%;
+    }
+}
+@media (max-width: 768px) {
+  .sliders-container .navslider{
+    top:80%;
+  }
 }
 
 @media (max-width: 576px) {
