@@ -30,7 +30,6 @@ function nextSlides() {
   addFillEllipse();
 }
 
-
 function prevSlides() {
   if (counter <= 0) {
     counter = 3
