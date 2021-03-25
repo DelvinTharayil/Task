@@ -2,9 +2,13 @@ let photographButton = document.querySelector(".photograph-button");
 let popUp = document.querySelector(".tooltip");
 let sliders = document.querySelector(".sliders");
 let buttons = document.querySelectorAll(".ellipse");
-let counter = 0;
 let slider = document.querySelector(".sliders-container");
+let counter = 0;
 var strX;
+let bannersliders = document.querySelector(".bannerSliders");
+let bannerbuttons = document.querySelectorAll(".banner-ellipse");
+let bannerslider = document.querySelector(".banner-container");
+let bannercounter = 0;
 
 window.addEventListener("load", hidPopupAfterTime);
 
@@ -18,27 +22,44 @@ slider.addEventListener(
     swipemove(e);
   }, 100)
 );
-
+bannerslider.addEventListener("touchstart", swipestart);
+bannerslider.addEventListener(
+  "touchmove",
+   debounce((e) => {
+    bannerswipemove(e);
+  }, 100)
+);
 
 function nextSlides() {
-  if (counter >= 2) {
-    counter = -1
+  if (bannercounter >= 2) {
+    bannercounter = -1
   }
-  counter++
-  moveSliders();
-  removeFillEliips();
-  addFillEllipse();
+  bannercounter++
+  bannermoveSliders();
+  bannerremoveFillEliips();
+  banneraddFillEllipse();
 }
 
 function prevSlides() {
-  if (counter <= 0) {
-    counter = 3
+  if (bannercounter <= 0) {
+    bannercounter = 3
   }
-  counter--
-  moveSliders();
-  removeFillEliips();
-  addFillEllipse();
+  bannercounter--
+  bannermoveSliders();
+  bannerremoveFillEliips();
+  banneraddFillEllipse();
 }
+
+bannerbuttons[0].classList.add("bannerShow-fill-ellipse");
+
+bannerbuttons.forEach((itm, i) => {
+  itm.addEventListener("click", () => {
+    bannercounter = i;
+    bannermoveSliders();
+    bannerremoveFillEliips();
+    banneraddFillEllipse();
+  });
+});
 
 buttons[0].classList.add("show-fill-ellipse");
 
@@ -112,4 +133,39 @@ function removeFillEliips() {
 }
 function addFillEllipse() {
   buttons[counter].classList.add("show-fill-ellipse");
+}
+
+
+function bannerswipemove(e) {
+  var touch = e.touches[0];
+  var change = strX - touch.clientX;
+  console.log(change);
+  if (change > 40) {
+    if (bannercounter >= 2) {
+      return;
+    }
+    bannercounter++;
+    bannermoveSliders();
+    bannerremoveFillEliips();
+    banneraddFillEllipse();
+  } else if (change < -40) {
+    if (bannercounter <= 0) {
+      return;
+    }
+    bannercounter--;
+    bannermoveSliders();
+    bannerremoveFillEliips();
+    banneraddFillEllipse();
+  }
+}
+
+function bannermoveSliders() {
+  let moveDistance = bannersliders.children[0].clientWidth;
+  bannersliders.style.transform = `translateX(${-moveDistance * bannercounter}px)`;
+}
+function bannerremoveFillEliips() {
+  bannerbuttons.forEach((itm) => itm.classList.remove("bannerShow-fill-ellipse"));
+}
+function banneraddFillEllipse() {
+  bannerbuttons[bannercounter].classList.add("bannerShow-fill-ellipse");
 }

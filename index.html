@@ -126,11 +126,46 @@
 
   <!-- Catchy tagline -->
   <main>
-    <picture>
-      <source srcset="images/main_desktop.png" media="(min-width: 576px)" />
-      <img src="images/main_mobile.png" alt="" />
-    </picture>
     <!-- <h3>INAUGRATORY OFFER - 30% off on all events and weddings!</h3> -->
+    <div class="banner-container">
+      <div class="bannerSliders">
+        <div style="margin: 0" class="bannerSlider">
+          <picture>
+            <source srcset="images/main_desktop.png" media="(min-width: 576px)" />
+            <img src="images/main_mobile.png" alt="" />
+          </picture>
+        </div>
+        <div class="bannerSlider">
+          <picture>
+            <source srcset="images/main_desktop.png" media="(min-width: 576px)" />
+            <img src="images/main_mobile.png" alt="" />
+          </picture>
+        </div>
+        <div class="bannerSlider">
+          <picture>
+            <source srcset="images/main_desktop.png" media="(min-width: 576px)" />
+            <img src="images/main_mobile.png" alt="" />
+          </picture>
+        </div>
+      </div>
+      <a class="navslider prev" onclick="prevSlides()">&#60;</a>
+      <a class="navslider next" onclick="nextSlides()">&#62;</a>
+    </div>
+
+      <div class="bannerSliders-control">
+        <div class="banner-ellipse">
+          <img src="no-optimize-images/ellipse_empty.svg" alt="" />
+          <img src="no-optimize-images/ellipse_fill.svg" alt="" />
+        </div>
+        <div class="banner-ellipse">
+          <img src="no-optimize-images/ellipse_empty.svg" alt="" />
+          <img src="no-optimize-images/ellipse_fill.svg" alt="" />
+        </div>
+        <div class="banner-ellipse">
+          <img src="no-optimize-images/ellipse_empty.svg" alt="" />
+          <img src="no-optimize-images/ellipse_fill.svg" alt="" />
+        </div>
+      </div>
   </main>
 
   <section id="what-say" class="what-say">
@@ -186,8 +221,6 @@
             </div>
           </div>
         </div>
-        <a class="navslider prev" onclick="prevSlides()">&#60;</a>
-        <a class="navslider next" onclick="nextSlides()">&#62;</a>
       </div>
 
       <div class="sliders-control">
